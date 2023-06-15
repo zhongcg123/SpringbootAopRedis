@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -71,5 +72,19 @@ public class ScanCodeSwitchServiceImpl implements ScanCodeSwitchService {
         }else {
             return "开启或关闭消费者扫码开关失败！";
         }
+    }
+
+    @Override
+    public String saveScanCodeSwitch(SwitchScanCode param) {
+        ScanCodeSwitchDO scanCodeSwitchDO = new ScanCodeSwitchDO();
+        scanCodeSwitchDO.setOrgCode(param.getOrgCode());
+        scanCodeSwitchDO.setOrgName(param.getOrgName());
+        scanCodeSwitchDO.setIsOpen(param.getIsOpen());
+        scanCodeSwitchDO.setDelStatus(0);
+        scanCodeSwitchDO.setCreator("zhangsna");
+        scanCodeSwitchDO.setCreatedTime(new Date());
+        scanCodeSwitchMapper.insert(scanCodeSwitchDO);
+
+        return "成功";
     }
 }

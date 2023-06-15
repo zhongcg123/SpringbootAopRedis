@@ -4,9 +4,11 @@ import com.example.springbootaopredis.dto.ScanCodeSwitch;
 import com.example.springbootaopredis.dto.ScanCodeSwitchParam;
 import com.example.springbootaopredis.dto.SwitchScanCode;
 import com.example.springbootaopredis.service.ScanCodeSwitchService;
+import com.example.springbootaopredis.util.RepeatSubmit;
 import com.example.springbootaopredis.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +33,7 @@ public class ScanCodeSwitchController {
      * @return
      */
     @PostMapping(path = "/scanCodeSwitch/queryScanCodeSwitch/v1")
-    public Result<List<ScanCodeSwitch>> queryScanCodeSwitch(ScanCodeSwitchParam param) {
+    public Result<List<ScanCodeSwitch>> queryScanCodeSwitch(@RequestBody ScanCodeSwitchParam param) {
         return Result.success(scanCodeSwitchService.queryScanCodeSwitch(param));
     }
 
@@ -41,7 +43,18 @@ public class ScanCodeSwitchController {
      * @return
      */
     @PostMapping(path = "/scanCodeSwitch/switchScanCode/v1")
-    public Result<String> switchScanCode(SwitchScanCode param) {
+    public Result<String> switchScanCode(@RequestBody SwitchScanCode param) {
         return Result.success(scanCodeSwitchService.switchScanCode(param));
+    }
+
+    /**
+     * 保存消费者扫码开关
+     * @param param
+     * @return
+     */
+    @PostMapping(path = "/scanCodeSwitch/saveScanCodeSwitch")
+    @RepeatSubmit(expireTime = 20)
+    public Result<String> saveScanCodeSwitch(@RequestBody SwitchScanCode param) {
+        return Result.success(scanCodeSwitchService.saveScanCodeSwitch(param));
     }
 }

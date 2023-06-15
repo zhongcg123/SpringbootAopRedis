@@ -18,4 +18,6 @@ public interface ScanCodeSwitchService {
     List<ScanCodeSwitch> queryScanCodeSwitch(ScanCodeSwitchParam param);
 
     String switchScanCode(SwitchScanCode param);
+
+    String saveScanCodeSwitch(SwitchScanCode param);
 }

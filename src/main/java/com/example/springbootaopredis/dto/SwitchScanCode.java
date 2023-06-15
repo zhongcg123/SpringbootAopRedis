@@ -15,6 +15,9 @@ public class SwitchScanCode {
     //@Field(name = "企业编码")
     private String orgCode;
 
+    //@Field(name = "企业编码")
+    private String orgName;
+
     //@Field(name = "是否开启 0开启 1关闭")
     private String isOpen;
 }
