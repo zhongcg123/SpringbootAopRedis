@@ -10,3 +10,10 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC
     username: root
     password: 1234
+
+#mybatis plus 设置
+mybatis-plus:
+  mapper-locations: classpath*:org/tobacco/**/xml/*Mapper.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
