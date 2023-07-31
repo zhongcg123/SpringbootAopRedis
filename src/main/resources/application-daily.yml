@@ -1,0 +1,24 @@
+server:
+  port: 8087
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC
+    username: root
+    password: 1234
+
+#mybatis plus 设置
+mybatis-plus:
+  mapper-locations: classpath*:org/tobacco/**/xml/*Mapper.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+oss:
+  endpoint: oss-cn-hangzhou.aliyuncs.com
+  accessKey: LTAI5tPN3C4QRSQVZ3kTAwyR
+  secretKey: QkaveP7FMAjPHaHmpfxoiySdvkw3Mg
