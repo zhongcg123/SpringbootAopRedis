@@ -16,6 +16,7 @@
     <properties>
         <java.version>8</java.version>
         <commons-pool2.version>2.11.1</commons-pool2.version>
+        <oss.version>0.0.1-SNAPSHOT</oss.version>
     </properties>
     <dependencies>
         <dependency>
@@ -72,6 +73,24 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
             <version>${commons-pool2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.21</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zhongcg</groupId>
+            <artifactId>oss-spring-boot-starter</artifactId>
+            <version>${oss.version}</version>
         </dependency>
     </dependencies>
 
