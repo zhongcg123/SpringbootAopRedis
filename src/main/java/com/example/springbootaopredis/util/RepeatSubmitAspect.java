@@ -45,7 +45,7 @@ public class RepeatSubmitAspect {
         Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
         // 获取防重复提交注解
         RepeatSubmit annotation = method.getAnnotation(RepeatSubmit.class);
-        // 获取token当做key
+        // 获取token当做key，没有token的话可以采用同一方法，同一用户,同一接口拼接锁前缀
         String token = request.getHeader("token");
         if (StringUtils.isEmpty(token)) {
             throw new CommonExcept("token不存在，请登录！");
